@@ -1,9 +1,9 @@
 {
   "name": "Utilities",
   "version": "0.1.0",
-  "summary": "A short description of Utilities.",
+  "summary": "Utilities for Swift.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/Utilities",
+  "homepage": "https://github.com/blcsntb/Utilities",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "blcsntb": "blcsntb@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/Utilities.git",
+    "git": "https://github.com/blcsntb/Utilities.git",
     "tag": "0.1.0"
   },
   "platforms": {
