@@ -9,5 +9,8 @@
 import Foundation
 
 public class LogUtils {
-    
+    public static func println(items: Any...) {
+        print(items)
+        print("")
+    }
 }
