@@ -8,9 +8,24 @@
 
 import Foundation
 
+private extension String {
+    var nsString: NSString {
+        return NSString(string: self)
+    }
+    var fileName: String {
+        return nsString.lastPathComponent
+    }
+    var fileNameWithoutExtension: String {
+        return fileName.nsString.stringByDeletingPathExtension
+    }
+}
+
 public class LogUtils {
-    public static func println(items: Any...) {
+    public static func println(items: Any, path: String = #file, line: Int = #line, function: String = #function) {
+        print(path.fileNameWithoutExtension, terminator: "_")
+        print(line, terminator: "_")
+        print(function, terminator: " ")
         print(items)
-        print("")
+        print()
     }
 }
