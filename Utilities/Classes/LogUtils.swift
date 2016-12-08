@@ -16,12 +16,12 @@ private extension String {
         return nsString.lastPathComponent
     }
     var fileNameWithoutExtension: String {
-        return fileName.nsString.deletingPathExtension
+        return fileName.nsString.stringByDeletingPathExtension
     }
 }
 
-open class LogUtils {
-    open static func println(_ items: Any, path: String = #file, line: Int = #line, function: String = #function) {
+public class LogUtils {
+    public static func println(items: Any, path: String = #file, line: Int = #line, function: String = #function) {
         print(path.fileNameWithoutExtension, terminator: "_")
         print(line, terminator: "_")
         print(function, terminator: " ")
