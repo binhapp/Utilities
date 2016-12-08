@@ -22,9 +22,9 @@ private extension String {
 
 public class LogUtils {
     public static func println(items: Any, path: String = #file, line: Int = #line, function: String = #function) {
-        print(path.fileNameWithoutExtension, terminator: "_")
-        print(line, terminator: "_")
-        print(function, terminator: " ")
+        print(path.fileNameWithoutExtension, terminator: ":")
+        print(line, terminator: ":")
+        print(function, terminator: ": ")
         print(items)
         print()
     }
