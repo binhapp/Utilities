@@ -2,11 +2,15 @@ PODS:
   - Utilities (0.1.2)
 
 DEPENDENCIES:
-  - Utilities
+  - Utilities (from `../`)
+
+EXTERNAL SOURCES:
+  Utilities:
+    :path: ../
 
 SPEC CHECKSUMS:
-  Utilities: 04105e38f3e157174a47ab70ee7efe9f9319a4d9
+  Utilities: 71831691ba19c4da1ca276b27280e3f2734ae63a
 
-PODFILE CHECKSUM: 22d262611939621561e1f4b8cff7ab4053183bb4
+PODFILE CHECKSUM: 6d2285e585053b0c7b86a34d77c5b08e5953c29e
 
 COCOAPODS: 1.2.0.beta.1
