@@ -9,22 +9,22 @@
 import UIKit
 
 public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
-    private(set) var items = [CellType<Parent, Child>]()
+    private(set) public var items = [CellType<Parent, Child>]()
     private var isMultipleExpand: Bool
     
-    init(isMultipleExpand: Bool = false) {
+    public init(isMultipleExpand: Bool = false) {
         self.isMultipleExpand = isMultipleExpand
     }
     
-    func removeAll() {
+    public func removeAll() {
         items.removeAll()
     }
     
-    func append(child: Child) {
+    public func append(child: Child) {
         items.append(CellType.Child(child))
     }
     
-    func append(parent: Parent, completion: (Int) -> [Child]) {
+    public func append(parent: Parent, completion: (Int) -> [Child]) {
         let parentIndex = items.count
         items.append(.Parent(parent))
         let childs = completion(parentIndex)
@@ -39,21 +39,22 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
         }
     }
     
-    func heightForRow(indexPath: NSIndexPath) -> CGFloat? {
+    public func heightForRow(indexPath: NSIndexPath) -> CGFloat? {
         let childIndex = indexPath.row
         
         if case .Child(let child) = items[childIndex],
             let parentIndex = child.get.child.parentIndex,
             case .Parent(let parent) = items[parentIndex]
-            where parent.get.parent.isHidden(childIndex)
         {
-            return 0
+            if parent.get.parent.isHidden(childIndex) {
+                return 0
+            }
         }
         
         return nil
     }
     
-    var expandCollapse: (NSIndexPath, (Child) -> Void) -> [NSIndexPath] {
+    public var expandCollapse: (NSIndexPath, (Child) -> Void) -> [NSIndexPath] {
         return isMultipleExpand ? multipleExpandCollapse : singleExpandCollapse
     }
     
@@ -117,24 +118,24 @@ public protocol ChildTypeProtocol {
 }
 
 public class ParentCell<Value>: ParentCellProtocol {
-    private(set) var value: Value
-    private(set) var isExpand = false
-    private(set) var childs = [(index: Int, isHidden: Bool)]()
+    private(set) public var value: Value
+    private(set) public var isExpand = false
+    private(set) public var childs = [(index: Int, isHidden: Bool)]()
     
-    init(value: Value) {
+    public init(value: Value) {
         self.value = value
     }
     
-    func append(childIndex: Int) {
+    public func append(childIndex: Int) {
         childs.append((index: childIndex, isHidden: true))
     }
     
-    func select() {
+    public func select() {
         isExpand = !isExpand
         childs = childs.map({(index: $0.index, isHidden: !$0.isHidden)})
     }
     
-    func isHidden(childIndex: Int) -> Bool {
+    public func isHidden(childIndex: Int) -> Bool {
         return childs.filter({$0.index == childIndex}).first?.isHidden ?? true
     }
 }
@@ -148,10 +149,10 @@ public protocol ParentCellProtocol {
 }
 
 public class ChildCell<Value>: ChildCellProtocol {
-    private(set) var parentIndex: Int?
-    private(set) var value: Value
+    private(set) public var parentIndex: Int?
+    private(set) public var value: Value
     
-    init(parentIndex: Int?, value: Value) {
+    public init(parentIndex: Int?, value: Value) {
         self.parentIndex = parentIndex
         self.value = value
     }
