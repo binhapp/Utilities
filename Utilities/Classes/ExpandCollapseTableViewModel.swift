@@ -10,10 +10,9 @@ import UIKit
 
 public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
     private(set) public var items = [CellType<Parent, Child>]()
-    private var isMultipleExpand: Bool
     
-    public init(isMultipleExpand: Bool = false) {
-        self.isMultipleExpand = isMultipleExpand
+    public init() {
+        
     }
     
     public func removeAll() {
@@ -34,7 +33,7 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
             items.append(.Child(child))
             
             if case .Parent(let parent) = items[parentIndex] {
-                parent.get.parent.append(childIndex)
+                parent.cell.append(childIndex)
             }
         }
     }
@@ -43,10 +42,10 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
         let childIndex = indexPath.row
         
         if case .Child(let child) = items[childIndex],
-            let parentIndex = child.get.child.parentIndex,
+            let parentIndex = child.cell.parentIndex,
             case .Parent(let parent) = items[parentIndex]
         {
-            if parent.get.parent.isHidden(childIndex) {
+            if parent.cell.isHidden(childIndex) {
                 return 0
             }
         }
@@ -54,11 +53,7 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
         return nil
     }
     
-    public var expandCollapse: (NSIndexPath, (Child) -> Void) -> [NSIndexPath] {
-        return isMultipleExpand ? multipleExpandCollapse : singleExpandCollapse
-    }
-    
-    private func singleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
+    public func singleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
         var indexPaths = [NSIndexPath]()
         
         if case .Parent(let parent) = items[indexPath.row] {
@@ -69,11 +64,11 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
         return indexPaths
     }
     
-    private func multipleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
+    public func multipleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
         switch items[indexPath.row] {
         case .Parent(let parent):
-            parent.get.parent.select()
-            items[indexPath.row] = CellType.Parent(parent.get.select)
+            parent.cell.select()
+            items[indexPath.row] = CellType.Parent(parent.select)
             return [indexPath]
         case .Child(let child):
             completion(child)
@@ -83,7 +78,7 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
     }
     
     private func collapsePrevious(indexPath: NSIndexPath, parent: Parent) -> [NSIndexPath] {
-        if parent.get.parent.isExpand {
+        if parent.cell.isExpand {
             return []
         }
         
@@ -93,7 +88,7 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
             }
             
             if case .Parent(let parent) = items[index] {
-                if parent.get.parent.isExpand {
+                if parent.cell.isExpand {
                     let indexPath = NSIndexPath(forRow: index, inSection: indexPath.section)
                     return multipleExpandCollapse(indexPath) { _ in }
                 }
@@ -104,17 +99,29 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
     }
 }
 
-public enum CellType<ParentType, ChildType> {
+public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtocol> {
     case Parent(ParentType)
     case Child(ChildType)
+    
+    public var identifier: String {
+        switch self {
+        case .Parent(let parent):
+            return parent.identifier
+        case .Child(let child):
+            return child.identifier
+        }
+    }
 }
 
 public protocol ParentTypeProtocol {
-    var get: (parent: ParentCellProtocol, identifier: String, select: Self) { get }
+    var identifier: String { get }
+    var cell: ParentCellProtocol { get }
+    var select: Self { get }
 }
 
 public protocol ChildTypeProtocol {
-    var get: (child: ChildCellProtocol, identifier: String) { get }
+    var identifier: String { get }
+    var cell: ChildCellProtocol { get }
 }
 
 public class ParentCell<Value>: ParentCellProtocol {
