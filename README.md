@@ -5,9 +5,21 @@
 [![License](https://img.shields.io/cocoapods/l/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 [![Platform](https://img.shields.io/cocoapods/p/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 
-## Example
+## ExpandCollapseModel
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## LogUtils
+
+Show log with file name, line, function name
+
+```swift
+LogUtils.println("Hi")
+```
+
+Console
+
+```swift
+AppDelegate:44:application(_:didFinishLaunchingWithOptions:): Hi
+```
 
 ## Requirements
 
