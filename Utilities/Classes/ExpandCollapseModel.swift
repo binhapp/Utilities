@@ -1,5 +1,5 @@
 //
-//  ExpandCollapseTableViewModel.swift
+//  ExpandCollapseModel.swift
 //  Pods
 //
 //  Created by blcsntb on 2/12/17.
@@ -8,7 +8,77 @@
 
 import UIKit
 
-public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
+public protocol ChildCellProtocol {
+    var parentIndex: Int? { get }
+}
+
+public protocol ParentCellProtocol {
+    var isExpand: Bool { get }
+    var childs: [(index: Int, isHidden: Bool)] { get }
+    func append(childIndex: Int)
+    func select()
+    func isHidden(childIndex: Int) -> Bool
+}
+
+public protocol ChildTypeProtocol {
+    var identifier: String { get }
+    var cell: ChildCellProtocol { get }
+}
+
+public protocol ParentTypeProtocol {
+    var identifier: String { get }
+    var cell: ParentCellProtocol { get }
+    var select: Self { get }
+}
+
+public class ChildCell<Value>: ChildCellProtocol {
+    private(set) public var parentIndex: Int?
+    private(set) public var value: Value
+    
+    public init(parentIndex: Int?, value: Value) {
+        self.parentIndex = parentIndex
+        self.value = value
+    }
+}
+
+public class ParentCell<Value>: ParentCellProtocol {
+    private(set) public var value: Value
+    private(set) public var isExpand = false
+    private(set) public var childs = [(index: Int, isHidden: Bool)]()
+    
+    public init(value: Value) {
+        self.value = value
+    }
+    
+    public func append(childIndex: Int) {
+        childs.append((index: childIndex, isHidden: true))
+    }
+    
+    public func select() {
+        isExpand = !isExpand
+        childs = childs.map({(index: $0.index, isHidden: !$0.isHidden)})
+    }
+    
+    public func isHidden(childIndex: Int) -> Bool {
+        return childs.filter({$0.index == childIndex}).first?.isHidden ?? true
+    }
+}
+
+public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtocol> {
+    case Parent(ParentType)
+    case Child(ChildType)
+    
+    public var identifier: String {
+        switch self {
+        case .Parent(let parent):
+            return parent.identifier
+        case .Child(let child):
+            return child.identifier
+        }
+    }
+}
+
+public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
     private(set) public var items = [CellType<Parent, Child>]()
     
     public init() {
@@ -97,74 +167,4 @@ public class ExpandCollapseTableViewModel<Parent: ParentTypeProtocol, Child: Chi
         
         return []
     }
-}
-
-public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtocol> {
-    case Parent(ParentType)
-    case Child(ChildType)
-    
-    public var identifier: String {
-        switch self {
-        case .Parent(let parent):
-            return parent.identifier
-        case .Child(let child):
-            return child.identifier
-        }
-    }
-}
-
-public protocol ParentTypeProtocol {
-    var identifier: String { get }
-    var cell: ParentCellProtocol { get }
-    var select: Self { get }
-}
-
-public protocol ChildTypeProtocol {
-    var identifier: String { get }
-    var cell: ChildCellProtocol { get }
-}
-
-public class ParentCell<Value>: ParentCellProtocol {
-    private(set) public var value: Value
-    private(set) public var isExpand = false
-    private(set) public var childs = [(index: Int, isHidden: Bool)]()
-    
-    public init(value: Value) {
-        self.value = value
-    }
-    
-    public func append(childIndex: Int) {
-        childs.append((index: childIndex, isHidden: true))
-    }
-    
-    public func select() {
-        isExpand = !isExpand
-        childs = childs.map({(index: $0.index, isHidden: !$0.isHidden)})
-    }
-    
-    public func isHidden(childIndex: Int) -> Bool {
-        return childs.filter({$0.index == childIndex}).first?.isHidden ?? true
-    }
-}
-
-public protocol ParentCellProtocol {
-    var isExpand: Bool { get }
-    var childs: [(index: Int, isHidden: Bool)] { get }
-    func append(childIndex: Int)
-    func select()
-    func isHidden(childIndex: Int) -> Bool
-}
-
-public class ChildCell<Value>: ChildCellProtocol {
-    private(set) public var parentIndex: Int?
-    private(set) public var value: Value
-    
-    public init(parentIndex: Int?, value: Value) {
-        self.parentIndex = parentIndex
-        self.value = value
-    }
-}
-
-public protocol ChildCellProtocol {
-    var parentIndex: Int? { get }
 }
