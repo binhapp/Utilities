@@ -9,12 +9,12 @@
 import UIKit
 
 public protocol ChildCellProtocol {
-    var parentIndex: Int? { get }
+    var parentIndex: Int? { get set }
 }
 
 public protocol ParentCellProtocol {
-    var isExpand: Bool { get }
-    var childs: [(index: Int, isHidden: Bool)] { get }
+    var isExpand: Bool { get set }
+    var childs: [(index: Int, isHidden: Bool)] { get set }
     func append(childIndex: Int)
     func select()
     func isHidden(childIndex: Int) -> Bool
@@ -32,22 +32,23 @@ public protocol ParentTypeProtocol {
 }
 
 public class ChildCell<Value>: ChildCellProtocol {
-    private(set) public var parentIndex: Int?
-    private(set) public var value: Value
+    public var parentIndex: Int?
+    public var value: Value
     
-    public init(parentIndex: Int?, value: Value) {
+    public init(parentIndex: Int? = nil, value: Value) {
         self.parentIndex = parentIndex
         self.value = value
     }
 }
 
 public class ParentCell<Value>: ParentCellProtocol {
-    private(set) public var value: Value
-    private(set) public var isExpand = false
-    private(set) public var childs = [(index: Int, isHidden: Bool)]()
+    public var value: Value
+    public var isExpand: Bool
+    public var childs = [(index: Int, isHidden: Bool)]()
     
-    public init(value: Value) {
+    public init(value: Value, isExpand: Bool = false) {
         self.value = value
+        self.isExpand = isExpand
     }
     
     public func append(childIndex: Int) {
@@ -79,14 +80,10 @@ public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtoco
 }
 
 public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
-    private(set) public var items = [CellType<Parent, Child>]()
+    public var items = [CellType<Parent, Child>]()
     
     public init() {
         
-    }
-    
-    public func removeAll() {
-        items.removeAll()
     }
     
     public func append(child: Child) {
