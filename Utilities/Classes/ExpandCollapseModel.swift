@@ -123,25 +123,22 @@ public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypePro
         return nil
     }
     
-    public func singleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
+    public func singleExpandCollapse(indexPath: NSIndexPath) -> [NSIndexPath] {
         var indexPaths = [NSIndexPath]()
         
         if case .Parent(let parent) = items[indexPath.row] {
             indexPaths.appendContentsOf(collapsePrevious(indexPath, parent: parent))
         }
         
-        indexPaths.appendContentsOf(multipleExpandCollapse(indexPath, completion: completion))
+        indexPaths.appendContentsOf(multipleExpandCollapse(indexPath))
         return indexPaths
     }
     
-    public func multipleExpandCollapse(indexPath: NSIndexPath, completion: (Child) -> Void) -> [NSIndexPath] {
-        switch items[indexPath.row] {
-        case .Parent(let parent):
+    public func multipleExpandCollapse(indexPath: NSIndexPath) -> [NSIndexPath] {
+        if case .Parent(let parent) = items[indexPath.row] {
             parent.cell.select()
             items[indexPath.row] = CellType.Parent(parent.select)
             return [indexPath]
-        case .Child(let child):
-            completion(child)
         }
         
         return []
@@ -160,7 +157,7 @@ public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypePro
             if case .Parent(let parent) = items[index] {
                 if parent.cell.isExpand {
                     let indexPath = NSIndexPath(forRow: index, inSection: indexPath.section)
-                    return multipleExpandCollapse(indexPath) { _ in }
+                    return multipleExpandCollapse(indexPath)
                 }
             }
         }
