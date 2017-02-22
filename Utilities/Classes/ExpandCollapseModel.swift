@@ -21,12 +21,10 @@ public protocol ParentCellProtocol {
 }
 
 public protocol ChildTypeProtocol {
-    var identifier: String { get }
     var cell: ChildCellProtocol { get }
 }
 
 public protocol ParentTypeProtocol {
-    var identifier: String { get }
     var cell: ParentCellProtocol { get }
     var select: Self { get }
 }
@@ -68,15 +66,6 @@ public class ParentCell<Value>: ParentCellProtocol {
 public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtocol> {
     case Parent(ParentType)
     case Child(ChildType)
-    
-    public var identifier: String {
-        switch self {
-        case .Parent(let parent):
-            return parent.identifier
-        case .Child(let child):
-            return child.identifier
-        }
-    }
 }
 
 public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
