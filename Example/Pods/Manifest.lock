@@ -1,15 +1,15 @@
 PODS:
-  - Utilities (0.1.2)
+  - Utilities (2.3.1)
 
 DEPENDENCIES:
   - Utilities (from `../`)
 
 EXTERNAL SOURCES:
   Utilities:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Utilities: 71831691ba19c4da1ca276b27280e3f2734ae63a
+  Utilities: 0a14f4aa0845ff42e8f8b78aa2e7f49bb6438e02
 
 PODFILE CHECKSUM: 6d2285e585053b0c7b86a34d77c5b08e5953c29e
 
