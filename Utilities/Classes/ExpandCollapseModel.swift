@@ -1,6 +1,6 @@
 //
 //  ExpandCollapseModel.swift
-//  Pods
+//
 //
 //  Created by blcsntb on 2/12/17.
 //
