@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 [![License](https://img.shields.io/cocoapods/l/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 [![Platform](https://img.shields.io/cocoapods/p/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
+[![CodeFactor](https://www.codefactor.io/repository/github/blcsntb/utilities/badge)](https://www.codefactor.io/repository/github/blcsntb/utilities)
 
 ## ExpandCollapseModel
 
