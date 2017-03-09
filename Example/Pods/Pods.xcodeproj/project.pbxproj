@@ -13,7 +13,7 @@
 		63FF0046641DFDC9A1E21F77DFA4C366 /* Utilities-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E72CC0DA03A731C204BCE8C306CFC25 /* Utilities-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		642A7E401801C38CA278BB017F63D9EC /* Pods-Utilities_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A78301E69EE2224419A1FA1EB831763 /* Pods-Utilities_Tests-dummy.m */; };
 		840D61B0C871B7AC412ECED8D8709487 /* Pods-Utilities_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 63E0C9E6F2B7A548C98FAB3221DDBC19 /* Pods-Utilities_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84CC28A11E71621C00762417 /* ExpandCollapseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC28A01E71621C00762417 /* ExpandCollapseModelProtocol.swift */; };
+		84CC28A21E71636E00762417 /* ExpandCollapseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CC28A01E71621C00762417 /* ExpandCollapseModelProtocol.swift */; };
 		9A3DBD0192FC8F1B4D52093E373DFF9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		9A4E7627BEACFB8AACDE14A9E77B5FB6 /* Pods-Utilities_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 467465504C94D1E81147D2525950A200 /* Pods-Utilities_Example-dummy.m */; };
 		9FCDF4012BC8B573F5638850CD139663 /* LogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519379A1FB8D64324EE85EBB3F8CE3D /* LogUtils.swift */; };
@@ -351,7 +351,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CC28A11E71621C00762417 /* ExpandCollapseModelProtocol.swift in Sources */,
 				9A4E7627BEACFB8AACDE14A9E77B5FB6 /* Pods-Utilities_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +361,7 @@
 			files = (
 				324F0E948075EFFB820AFEC9E50656E6 /* ExpandCollapseModel.swift in Sources */,
 				9FCDF4012BC8B573F5638850CD139663 /* LogUtils.swift in Sources */,
+				84CC28A21E71636E00762417 /* ExpandCollapseModelProtocol.swift in Sources */,
 				EA7D3E1F8A1B1DD4AA846EAC28BE3C0A /* Utilities-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
