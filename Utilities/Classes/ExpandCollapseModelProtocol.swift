@@ -35,12 +35,12 @@ public extension ExpandCollapseModelProtocol {
         return model.count
     }
     
-    func numberOfRowsInSection(_ section: Int) -> Int {
+    func numberOfRowsInSection(section: Int) -> Int {
         if model[section].hidden { return 0 }
         return model[section].cells.count
     }
     
-    func heightForRow(_ indexPath: NSIndexPath) -> CGFloat {
+    func heightForRow(indexPath: NSIndexPath) -> CGFloat {
         return model[indexPath.section].heights[indexPath.row]
     }
     
@@ -49,22 +49,22 @@ public extension ExpandCollapseModelProtocol {
         model[indexPath.section].heights[indexPath.row] = height
     }
     
-    func getType(_ indexPath: NSIndexPath) -> T {
+    func getType(indexPath: NSIndexPath) -> T {
         return model[indexPath.section].cells[indexPath.row]
     }
     
-    func isExpand(_ indexPath: NSIndexPath) -> Bool {
+    func isExpand(indexPath: NSIndexPath) -> Bool {
         guard let indexChild = getIndexChild(indexPath) else { return false }
         return !model[indexChild].hidden
     }
-
-    func selectParent(_ indexPath: NSIndexPath, completion: (Int, Bool) -> Void) {
+    
+    func selectParent(indexPath: NSIndexPath, completion: (Int, Bool) -> Void) {
         guard let indexChild = getIndexChild(indexPath) else { return }
         model[indexChild].hidden = !model[indexChild].hidden
         completion(indexChild, model[indexChild].hidden)
     }
     
-    func getIndexChild(_ indexPath: NSIndexPath) -> Int? {
+    func getIndexChild(indexPath: NSIndexPath) -> Int? {
         guard isParent(indexPath),
             let child = model.filter({$0.parent == indexPath.section}).first,
             let indexChild = model.indexOf({$0.parent == child.parent})
@@ -73,7 +73,7 @@ public extension ExpandCollapseModelProtocol {
         return indexChild
     }
     
-    func isParent(_ indexPath: NSIndexPath) -> Bool {
+    func isParent(indexPath: NSIndexPath) -> Bool {
         return model[indexPath.section].parent == nil
     }
 }
