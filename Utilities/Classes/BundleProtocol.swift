@@ -13,9 +13,9 @@ public protocol BundleProtocol {
 }
 
 public extension BundleProtocol {
-    public var bundle: NSBundle? {
+    public var bundle: Bundle? {
         if let bundleName = getBundleName() {
-            return NSBundle(path: bundleName)
+            return Bundle(path: bundleName)
         }
         
         return nil

@@ -16,7 +16,7 @@ public extension ViewControllerProtocol {
     public static var instantiate: Self {
         let storyboard = getStoryboard().storyboard
         let identifier = className
-        let viewController = storyboard.instantiateViewControllerWithIdentifier(identifier)
+        let viewController = storyboard.instantiateViewController(withIdentifier: identifier)
         return viewController as! Self
     }
 }

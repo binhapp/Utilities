@@ -15,9 +15,9 @@ public protocol ChildCellProtocol {
 public protocol ParentCellProtocol {
     var isExpand: Bool { get set }
     var childs: [(index: Int, isHidden: Bool)] { get set }
-    func append(childIndex: Int)
+    func append(_ childIndex: Int)
     func select()
-    func isHidden(childIndex: Int) -> Bool
+    func isHidden(_ childIndex: Int) -> Bool
 }
 
 public protocol ChildTypeProtocol {
@@ -29,9 +29,9 @@ public protocol ParentTypeProtocol {
     var select: Self { get }
 }
 
-public class ChildCell<Value>: ChildCellProtocol {
-    public var parentIndex: Int?
-    public var value: Value
+open class ChildCell<Value>: ChildCellProtocol {
+    open var parentIndex: Int?
+    open var value: Value
     
     public init(parentIndex: Int? = nil, value: Value) {
         self.parentIndex = parentIndex
@@ -39,67 +39,67 @@ public class ChildCell<Value>: ChildCellProtocol {
     }
 }
 
-public class ParentCell<Value>: ParentCellProtocol {
-    public var value: Value
-    public var isExpand: Bool
-    public var childs = [(index: Int, isHidden: Bool)]()
+open class ParentCell<Value>: ParentCellProtocol {
+    open var value: Value
+    open var isExpand: Bool
+    open var childs = [(index: Int, isHidden: Bool)]()
     
     public init(value: Value, isExpand: Bool = false) {
         self.value = value
         self.isExpand = isExpand
     }
     
-    public func append(childIndex: Int) {
+    open func append(_ childIndex: Int) {
         childs.append((index: childIndex, isHidden: true))
     }
     
-    public func select() {
+    open func select() {
         isExpand = !isExpand
         childs = childs.map({(index: $0.index, isHidden: !$0.isHidden)})
     }
     
-    public func isHidden(childIndex: Int) -> Bool {
+    open func isHidden(_ childIndex: Int) -> Bool {
         return childs.filter({$0.index == childIndex}).first?.isHidden ?? true
     }
 }
 
 public enum CellType<ParentType: ParentTypeProtocol, ChildType: ChildTypeProtocol> {
-    case Parent(ParentType)
-    case Child(ChildType)
+    case parent(ParentType)
+    case child(ChildType)
 }
 
-public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
-    public var items = [CellType<Parent, Child>]()
+open class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypeProtocol> {
+    open var items = [CellType<Parent, Child>]()
     
     public init() {
         
     }
     
-    public func append(child: Child) {
-        items.append(CellType.Child(child))
+    open func append(_ child: Child) {
+        items.append(CellType.child(child))
     }
     
-    public func append(parent: Parent, completion: (Int) -> [Child]) {
+    open func append(_ parent: Parent, completion: (Int) -> [Child]) {
         let parentIndex = items.count
-        items.append(.Parent(parent))
+        items.append(.parent(parent))
         let childs = completion(parentIndex)
         
         for child in childs {
             let childIndex = items.count
-            items.append(.Child(child))
+            items.append(.child(child))
             
-            if case .Parent(let parent) = items[parentIndex] {
+            if case .parent(let parent) = items[parentIndex] {
                 parent.cell.append(childIndex)
             }
         }
     }
     
-    public func heightForRow(indexPath: NSIndexPath) -> CGFloat? {
+    open func heightForRow(_ indexPath: IndexPath) -> CGFloat? {
         let childIndex = indexPath.row
         
-        if case .Child(let child) = items[childIndex],
+        if case .child(let child) = items[childIndex],
             let parentIndex = child.cell.parentIndex,
-            case .Parent(let parent) = items[parentIndex]
+            case .parent(let parent) = items[parentIndex]
         {
             if parent.cell.isHidden(childIndex) {
                 return 0
@@ -109,28 +109,28 @@ public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypePro
         return nil
     }
     
-    public func singleExpandCollapse(indexPath: NSIndexPath) -> [NSIndexPath] {
-        var indexPaths = [NSIndexPath]()
+    open func singleExpandCollapse(_ indexPath: IndexPath) -> [IndexPath] {
+        var indexPaths = [IndexPath]()
         
-        if case .Parent(let parent) = items[indexPath.row] {
-            indexPaths.appendContentsOf(collapsePrevious(indexPath, parent: parent))
+        if case .parent(let parent) = items[indexPath.row] {
+            indexPaths.append(contentsOf: collapsePrevious(indexPath, parent: parent))
         }
         
-        indexPaths.appendContentsOf(multipleExpandCollapse(indexPath))
+        indexPaths.append(contentsOf: multipleExpandCollapse(indexPath))
         return indexPaths
     }
     
-    public func multipleExpandCollapse(indexPath: NSIndexPath) -> [NSIndexPath] {
-        if case .Parent(let parent) = items[indexPath.row] {
+    open func multipleExpandCollapse(_ indexPath: IndexPath) -> [IndexPath] {
+        if case .parent(let parent) = items[indexPath.row] {
             parent.cell.select()
-            items[indexPath.row] = CellType.Parent(parent.select)
+            items[indexPath.row] = CellType.parent(parent.select)
             return [indexPath]
         }
         
         return []
     }
     
-    private func collapsePrevious(indexPath: NSIndexPath, parent: Parent) -> [NSIndexPath] {
+    fileprivate func collapsePrevious(_ indexPath: IndexPath, parent: Parent) -> [IndexPath] {
         if parent.cell.isExpand {
             return []
         }
@@ -140,9 +140,9 @@ public class ExpandCollapseModel<Parent: ParentTypeProtocol, Child: ChildTypePro
                 continue
             }
             
-            if case .Parent(let parent) = items[index] {
+            if case .parent(let parent) = items[index] {
                 if parent.cell.isExpand {
-                    let indexPath = NSIndexPath(forRow: index, inSection: indexPath.section)
+                    let indexPath = IndexPath(row: index, section: indexPath.section)
                     return multipleExpandCollapse(indexPath)
                 }
             }

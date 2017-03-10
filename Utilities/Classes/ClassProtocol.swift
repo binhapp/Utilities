@@ -14,6 +14,6 @@ public protocol ClassProtocol: class {
 
 public extension ClassProtocol {
     public static var className: String {
-        return String(Self)
+        return String(describing: Self)
     }
 }
