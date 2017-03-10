@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E07F04B0D0BE46E4C6BDDFD99B5839133D387FFC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6A9BF8F385233F9D031647846EAA9ED76670023A" : 9223372036854775807,
+    "E07F04B0D0BE46E4C6BDDFD99B5839133D387FFC" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CE396662-9782-495B-94D6-88F96AF6E243",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6A9BF8F385233F9D031647846EAA9ED76670023A" : "",
+    "E07F04B0D0BE46E4C6BDDFD99B5839133D387FFC" : "Utilities\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Utilities",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/Utilities.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/anhtukhtn\/grabdoi.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6A9BF8F385233F9D031647846EAA9ED76670023A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/blcsntb\/Utilities",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E07F04B0D0BE46E4C6BDDFD99B5839133D387FFC"
+    }
+  ]
+}

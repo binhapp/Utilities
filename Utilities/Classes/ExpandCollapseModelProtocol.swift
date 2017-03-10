@@ -25,7 +25,7 @@ public extension ExpandCollapseModelProtocol {
         model.append(Cell(cells: [parent], heights: [UITableViewAutomaticDimension], parent: nil, hidden: false))
         
         if let cells = child.cells {
-            let heights: [CGFloat] = Array(count: cells.count, repeatedValue: UITableViewAutomaticDimension)
+            let heights: [CGFloat] = Array(repeating: UITableViewAutomaticDimension, count: cells.count)
             let parentIndex = model.count - 1
             model.append(Cell(cells: cells, heights: heights, parent: parentIndex, hidden: child.expand))
         }
@@ -54,20 +54,20 @@ public extension ExpandCollapseModelProtocol {
     }
     
     func isExpand(indexPath: NSIndexPath) -> Bool {
-        guard let indexChild = getIndexChild(indexPath) else { return false }
+        guard let indexChild = getIndexChild(indexPath: indexPath) else { return false }
         return !model[indexChild].hidden
     }
     
     func selectParent(indexPath: NSIndexPath, completion: (Int, Bool) -> Void) {
-        guard let indexChild = getIndexChild(indexPath) else { return }
+        guard let indexChild = getIndexChild(indexPath: indexPath) else { return }
         model[indexChild].hidden = !model[indexChild].hidden
         completion(indexChild, model[indexChild].hidden)
     }
     
     func getIndexChild(indexPath: NSIndexPath) -> Int? {
-        guard isParent(indexPath),
+        guard isParent(indexPath: indexPath),
             let child = model.filter({$0.parent == indexPath.section}).first,
-            let indexChild = model.indexOf({$0.parent == child.parent})
+            let indexChild = model.index(where: {$0.parent == child.parent})
             else { return nil }
         
         return indexChild

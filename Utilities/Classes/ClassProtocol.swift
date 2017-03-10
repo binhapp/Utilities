@@ -8,12 +8,12 @@
 
 import Foundation
 
-public protocol ClassProtocol: class {
+public protocol ClassProtocol {
     
 }
 
 public extension ClassProtocol {
     public static var className: String {
-        return String(describing: Self)
+        return String(describing: self)
     }
 }
