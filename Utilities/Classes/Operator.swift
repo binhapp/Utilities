@@ -1,9 +1,5 @@
-//
-//  Operator.swift
-//  Pods
-//
-//  Created by blcsntb on 3/11/17.
-//
-//
-
 import Foundation
+
+public func + <T, U> (left: T, right: U) -> (T, U) {
+    return (left, right)
+}
