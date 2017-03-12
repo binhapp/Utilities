@@ -13,6 +13,8 @@
 		6CCC4093620F60C178BC36AA /* Pods_Utilities_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F01DF28106EBD72166CAD1CC /* Pods_Utilities_Example.framework */; };
 		8694FC235144F49C3AAA2973 /* Pods_Utilities_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60327420BBCCCD7EA1FF17FF /* Pods_Utilities_Tests.framework */; };
 		D74734AA1E73D9030065B11C /* NameableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74734A91E73D9030065B11C /* NameableTests.swift */; };
+		D7A01FE41E7534CD00B030A4 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FE21E7534CD00B030A4 /* FirstTableViewCell.swift */; };
+		D7A01FE51E7534CD00B030A4 /* FirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7A01FE31E7534CD00B030A4 /* FirstTableViewCell.xib */; };
 		D7A66DC91E74EEF40097C0C5 /* Storyboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A66DC81E74EEF40097C0C5 /* Storyboard1.storyboard */; };
 		D7A66DCB1E74EF9B0097C0C5 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */; };
 		D7A66DCD1E74EFAB0097C0C5 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */; };
@@ -46,6 +48,8 @@
 		AE47EF99A502AA1D2E6B8425 /* Pods-Utilities_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Utilities_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Utilities_Example/Pods-Utilities_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D317B73A627F742B34041DEC /* Utilities.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Utilities.podspec; path = ../Utilities.podspec; sourceTree = "<group>"; };
 		D74734A91E73D9030065B11C /* NameableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameableTests.swift; sourceTree = "<group>"; };
+		D7A01FE21E7534CD00B030A4 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		D7A01FE31E7534CD00B030A4 /* FirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstTableViewCell.xib; sourceTree = "<group>"; };
 		D7A66DC81E74EEF40097C0C5 /* Storyboard1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard1.storyboard; sourceTree = "<group>"; };
 		D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				D7A66DCE1E74F0B20097C0C5 /* AppConstant.swift */,
 				D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */,
 				D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */,
+				D7A01FE21E7534CD00B030A4 /* FirstTableViewCell.swift */,
+				D7A01FE31E7534CD00B030A4 /* FirstTableViewCell.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for Utilities";
@@ -258,6 +264,7 @@
 			files = (
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				D7A01FE51E7534CD00B030A4 /* FirstTableViewCell.xib in Resources */,
 				D7A66DC91E74EEF40097C0C5 /* Storyboard1.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +378,7 @@
 			files = (
 				D7A66DCB1E74EF9B0097C0C5 /* ViewController1.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				D7A01FE41E7534CD00B030A4 /* FirstTableViewCell.swift in Sources */,
 				D7A66DCD1E74EFAB0097C0C5 /* ViewController2.swift in Sources */,
 				D7A66DCF1E74F0B20097C0C5 /* AppConstant.swift in Sources */,
 			);
