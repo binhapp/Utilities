@@ -17,7 +17,8 @@ class ViewController2: UIViewController, ViewControllerInstantiateable, ViewCont
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = param.title
-        navigationController?.view.tintColor = param.color
+        
+        title = param.title
+        view.backgroundColor = param.color
     }
 }
