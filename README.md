@@ -5,14 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 [![Platform](https://img.shields.io/cocoapods/p/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 
-## ExpandCollapseModel
-
-## LogUtils
+## Debug
 
 Show log with file name, line, function name
 
 ```swift
-LogUtils.println("Hi")
+println("Hi")
 ```
 
 Console

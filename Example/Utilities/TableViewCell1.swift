@@ -9,7 +9,7 @@
 import UIKit
 import Utilities
 
-class FirstTableViewCell: UITableViewCell, TableViewCellDatable {
+class TableViewCell1: UITableViewCell, TableViewCellDatable {
     @IBOutlet weak var label: UILabel!
     
     typealias T = (title: String, color: UIColor)

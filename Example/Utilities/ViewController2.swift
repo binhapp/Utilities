@@ -14,8 +14,8 @@ class ViewController2: UIViewController, ViewControllerInstantiateable, ViewCont
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView & FirstTableViewCell.self
-            tableView & (FirstTableViewCell.self, "custom identifier")
+            tableView & TableViewCell1.self
+            tableView & (TableViewCell1.self, "custom identifier")
             
             tableView.dataSource = self
             tableView.delegate = self
@@ -44,11 +44,11 @@ extension ViewController2: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = (tableView, indexPath) + FirstTableViewCell.self
+            let cell = (tableView, indexPath) + TableViewCell1.self
             return cell + model[indexPath.row]
         }
         
-        let cell = (tableView, indexPath) + (FirstTableViewCell.self, "custom identifier")
+        let cell = (tableView, indexPath) + (TableViewCell1.self, "custom identifier")
         return cell + model[indexPath.row]
     }
 }
