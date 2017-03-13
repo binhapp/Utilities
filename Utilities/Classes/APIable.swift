@@ -21,7 +21,7 @@ public protocol APIResponseable {
 }
 
 public protocol APIRequestable {
-    static func request<T1, T2, T3, T4>(method: T1, url: T2, parameter: T3, response: (T4) -> Void)
+    static func request<T1, T2, T3, T4>(method: T1, url: T2, parameter: T3, response: @escaping (T4) -> Void)
     where T1: APIMethodable, T2: APIURLable, T3: APIParameterable, T4: APIResponseable
 }
 
@@ -33,7 +33,7 @@ public protocol APIable: APIParameterable {
     func api() -> (MethodType, URLType, RequestType.Type)
 }
 
-public func &<T>(lhs: T, rhs: (T.ResponseType) -> Void) where T : APIable {
+public func &<T>(lhs: T, rhs: @escaping (T.ResponseType) -> Void) where T : APIable {
     let api = lhs.api()
     api.2.request(method: api.0, url: api.1, parameter: lhs, response: rhs)
 }
