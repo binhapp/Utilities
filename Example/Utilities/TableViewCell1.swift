@@ -12,11 +12,11 @@ import Utilities
 class TableViewCell1: UITableViewCell, TableViewCellDatable {
     @IBOutlet weak var label: UILabel!
     
-    typealias T = (title: String, color: UIColor)
-    var param: T! {
+    typealias ParameterType = (title: String, color: UIColor)
+    var parameter: ParameterType! {
         didSet {
-            label.text = param.title
-            label.textColor = param.color
+            label.text = parameter.title
+            label.textColor = parameter.color
         }
     }
 }

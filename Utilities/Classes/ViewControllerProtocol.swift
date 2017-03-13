@@ -12,26 +12,24 @@ public protocol ViewControllerInstantiateable: Nameable {
     static var storyboardName: StoryboardNameable { get }
 }
 
-public protocol ViewControllerOpenable: Parameterable {
-    
-}
+public protocol ViewControllerOpenable: Parameterable {}
 
-public prefix func ! <T: NavigationNameable> (left: T) -> UINavigationController {
-    let viewController = left.navigationName.0.storyboardName & left.navigationName.1
+public prefix func !(rhs: NavigationNameable) -> UINavigationController {
+    let viewController = rhs.navigationName.0.storyboardName & rhs.navigationName.1
     return viewController as! UINavigationController
 }
 
-public func + <T> (left: UINavigationController, right: T.Type) -> T {
-    return left.topViewController as! T
+public func &<T>(lhs: UINavigationController, rhs: T.Type) -> T {
+    return lhs.topViewController as! T
 }
 
-public prefix func ! <T: ViewControllerInstantiateable> (left: T.Type) -> T {
-    let viewController = left.storyboardName.storyboardName & left.name
+public prefix func !<T>(rhs: T.Type) -> T where T : ViewControllerInstantiateable {
+    let viewController = rhs.storyboardName.storyboardName & rhs.name
     return viewController as! T
 }
 
-private func & (left: String, right: String) -> UIViewController {
-    let storyboard = UIStoryboard(name: left, bundle: nil)
-    let viewController = storyboard.instantiateViewController(withIdentifier: right)
+private func &(lhs: String, rhs: String) -> UIViewController {
+    let storyboard = UIStoryboard(name: lhs, bundle: nil)
+    let viewController = storyboard.instantiateViewController(withIdentifier: rhs)
     return viewController
 }
