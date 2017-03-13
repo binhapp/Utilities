@@ -21,6 +21,7 @@
 		D7A01FDF1E752ECB00B030A4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */; };
 		D7A01FE81E75447A00B030A4 /* APIable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FE61E75421300B030A4 /* APIable.swift */; };
 		D7A66DD11E74FD840097C0C5 /* Parameterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DD01E74FD840097C0C5 /* Parameterable.swift */; };
+		D7DE75601E76FA20005B6305 /* ModelExpandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE755E1E76FA1A005B6305 /* ModelExpandable.swift */; };
 		EA7D3E1F8A1B1DD4AA846EAC28BE3C0A /* Utilities-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063656DAF70C55B60B51F7FDAA06658 /* Utilities-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D7A01FE61E75421300B030A4 /* APIable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIable.swift; sourceTree = "<group>"; };
 		D7A66DD01E74FD840097C0C5 /* Parameterable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameterable.swift; sourceTree = "<group>"; };
+		D7DE755E1E76FA1A005B6305 /* ModelExpandable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelExpandable.swift; sourceTree = "<group>"; };
 		DA29B539D3B5D3CE5D3DB8B2E9DAD6B8 /* Utilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8366DC59838794CEDA218576BEBD01 /* Pods_Utilities_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utilities_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1134DB2CBAB622AAA84099BEFDB943C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				D7A66DD01E74FD840097C0C5 /* Parameterable.swift */,
 				D71792A41E74079A00451343 /* ViewController.swift */,
 				D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */,
+				D7DE755E1E76FA1A005B6305 /* ModelExpandable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D74734A81E73D8C50065B11C /* Nameable.swift in Sources */,
 				D7A66DD11E74FD840097C0C5 /* Parameterable.swift in Sources */,
 				D71792A81E740C8300451343 /* ViewController.swift in Sources */,
+				D7DE75601E76FA20005B6305 /* ModelExpandable.swift in Sources */,
 				EA7D3E1F8A1B1DD4AA846EAC28BE3C0A /* Utilities-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

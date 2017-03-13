@@ -1,11 +1,3 @@
-//
-//  ExpandCollapseModelProtocol.swift
-//
-//
-//  Created by blcsntb on 3/8/17.
-//
-//
-
 import UIKit
 
 public struct Cell<T> {
@@ -15,12 +7,12 @@ public struct Cell<T> {
     var hidden: Bool
 }
 
-public protocol ExpandCollapseModelProtocol: NSObjectProtocol {
+public protocol ModelExpandable: NSObjectProtocol {
     associatedtype T
     var model: [Cell<T>] { get set }
 }
 
-public extension ExpandCollapseModelProtocol {
+public extension ModelExpandable {
     func append(parent: T, child: (expand: Bool, cells: [T]?) = (true, nil)) {
         model.append(Cell(cells: [parent], heights: [UITableViewAutomaticDimension], parent: nil, hidden: false))
         
