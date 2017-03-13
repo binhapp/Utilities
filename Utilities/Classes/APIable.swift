@@ -20,20 +20,20 @@ public protocol APIResponseable {
     init(data: ResponseType)
 }
 
-public protocol APIRequestable: APIParameterable {
-    associatedtype SendType: APISenable
+public protocol APIRequestable {
+    static func request<T1, T2, T3, T4>(method: T1, url: T2, parameter: T3, response: (T4) -> Void)
+    where T1: APIMethodable, T2: APIURLable, T3: APIParameterable, T4: APIResponseable
+}
+
+public protocol APIable: APIParameterable {
     associatedtype MethodType: APIMethodable
     associatedtype URLType: APIURLable
+    associatedtype RequestType: APIRequestable
     associatedtype ResponseType: APIResponseable
-    
-    func request() -> (SendType.Type, MethodType, URLType)
+    func api() -> (MethodType, URLType, RequestType.Type)
 }
 
-public protocol APISenable {
-    static func send<T1: APIMethodable, T2: APIURLable, T3: APIParameterable, T4: APIResponseable>(request: (T1, T2, T3), response: (T4) -> Void)
-}
-
-public func > <T: APIRequestable> (left: T, right: (T.ResponseType) -> Void) {
-    let request = left.request()
-    request.0.send(request: (request.1, request.2, left), response: right)
+public func &<T>(lhs: T, rhs: (T.ResponseType) -> Void) where T : APIable {
+    let api = lhs.api()
+    api.2.request(method: api.0, url: api.1, parameter: lhs, response: rhs)
 }

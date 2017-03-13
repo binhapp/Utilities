@@ -34,35 +34,12 @@ struct API {
         }
     }
     
-    struct Alamofire: APISenable {
-        static func send<T1 : APIMethodable, T2 : APIURLable, T3 : APIParameterable, T4 : APIResponseable>(request: (T1, T2, T3), response: (T4) -> Void) {
-            let fullName = (request.0.getMethod(), request.1.getURL(), request.2.getParameter())
+    struct Alamofire: APIRequestable {
+        static func request<T1, T2, T3, T4>(method: T1, url: T2, parameter: T3, response: (T4) -> Void)
+            where T1 : APIMethodable, T2 : APIURLable, T3 : APIParameterable, T4 : APIResponseable
+        {
+            let fullName = (method.getMethod(), url.getURL(), parameter.getParameter())
             response(T4(data: ["full_name": fullName]))
-        }
-    }
-    
-    struct Login: APIRequestable {
-        let userName: String
-        let password: String
-        
-        func getParameter() -> [String : Any] {
-            return [
-                "username": userName,
-                "password": password,
-            ]
-        }
-        
-        func request() -> (Alamofire.Type, Method, URL) {
-            return (Alamofire.self, .post, .login)
-        }
-        
-        typealias ResponseType = User
-        struct User: APIResponseable {
-            let fullName: Any?
-            
-            init(data: [String : Any]) {
-                fullName = data["full_name"]
-            }
         }
     }
 }
