@@ -17,6 +17,7 @@
 		B7DE36F9E620DF5FED3AC8EBB9F01167 /* Pods-Utilities_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE7AB6D99B4AC60C1616F19BF2B12E96 /* Pods-Utilities_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D71792A81E740C8300451343 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71792A41E74079A00451343 /* ViewController.swift */; };
 		D72799BA1E73A5640009FFFE /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519379A1FB8D64324EE85EBB3F8CE3D /* Debug.swift */; };
+		D72B6F3E1E7C4DBF007181A0 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B6F3C1E7C4D30007181A0 /* CustomView.swift */; };
 		D74734A81E73D8C50065B11C /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74734A71E73D8C50065B11C /* Nameable.swift */; };
 		D7A01FDF1E752ECB00B030A4 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */; };
 		D7A01FE81E75447A00B030A4 /* APIable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FE61E75421300B030A4 /* APIable.swift */; };
@@ -64,6 +65,7 @@
 		CE422431C9A9CDE80E74376486EC903D /* Pods-Utilities_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Utilities_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CE7AB6D99B4AC60C1616F19BF2B12E96 /* Pods-Utilities_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Utilities_Example-umbrella.h"; sourceTree = "<group>"; };
 		D71792A41E74079A00451343 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D72B6F3C1E7C4D30007181A0 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		D74734A71E73D8C50065B11C /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
 		D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		D7A01FE61E75421300B030A4 /* APIable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIable.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				D71792A41E74079A00451343 /* ViewController.swift */,
 				D7A01FDD1E752EC400B030A4 /* TableViewCell.swift */,
 				D7DE755E1E76FA1A005B6305 /* ModelExpandable.swift */,
+				D72B6F3C1E7C4D30007181A0 /* CustomView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D72799BA1E73A5640009FFFE /* Debug.swift in Sources */,
 				D7A01FE81E75447A00B030A4 /* APIable.swift in Sources */,
 				D7A01FDF1E752ECB00B030A4 /* TableViewCell.swift in Sources */,
+				D72B6F3E1E7C4DBF007181A0 /* CustomView.swift in Sources */,
 				D74734A81E73D8C50065B11C /* Nameable.swift in Sources */,
 				D7A66DD11E74FD840097C0C5 /* Parameterable.swift in Sources */,
 				D71792A81E740C8300451343 /* ViewController.swift in Sources */,
