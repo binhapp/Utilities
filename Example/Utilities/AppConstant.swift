@@ -16,11 +16,3 @@ enum Storyboard: String, StoryboardNameable {
         return rawValue
     }
 }
-
-enum Navigation: String, NavigationNameable {
-    case NavigationController2
-    
-    var navigationName: (StoryboardNameable, String) {
-        return (Storyboard.Storyboard1, rawValue)
-    }
-}

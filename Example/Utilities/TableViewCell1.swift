@@ -9,11 +9,10 @@
 import UIKit
 import Utilities
 
-class TableViewCell1: UITableViewCell, TableViewCellDatable {
+class TableViewCell1: UITableViewCell, Nameable, Parameterable {
     @IBOutlet weak var label: UILabel!
     
-    typealias ParameterType = (title: String, color: UIColor)
-    var parameter: ParameterType! {
+    var parameter: (title: String, color: UIColor)! {
         didSet {
             label.text = parameter.title
             label.textColor = parameter.color

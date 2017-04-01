@@ -15,12 +15,10 @@
 		D74734AA1E73D9030065B11C /* NameableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74734A91E73D9030065B11C /* NameableTests.swift */; };
 		D7A01FE41E7534CD00B030A4 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FE21E7534CD00B030A4 /* TableViewCell1.swift */; };
 		D7A01FE51E7534CD00B030A4 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7A01FE31E7534CD00B030A4 /* TableViewCell1.xib */; };
-		D7A01FEA1E757ABA00B030A4 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A01FE91E757ABA00B030A4 /* API.swift */; };
 		D7A66DC91E74EEF40097C0C5 /* Storyboard1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7A66DC81E74EEF40097C0C5 /* Storyboard1.storyboard */; };
 		D7A66DCB1E74EF9B0097C0C5 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */; };
 		D7A66DCD1E74EFAB0097C0C5 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */; };
 		D7A66DCF1E74F0B20097C0C5 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A66DCE1E74F0B20097C0C5 /* AppConstant.swift */; };
-		D7DE755D1E76EBD3005B6305 /* API+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DE755C1E76EBD3005B6305 /* API+Login.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +50,10 @@
 		D74734A91E73D9030065B11C /* NameableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameableTests.swift; sourceTree = "<group>"; };
 		D7A01FE21E7534CD00B030A4 /* TableViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
 		D7A01FE31E7534CD00B030A4 /* TableViewCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
-		D7A01FE91E757ABA00B030A4 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D7A66DC81E74EEF40097C0C5 /* Storyboard1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard1.storyboard; sourceTree = "<group>"; };
 		D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		D7A66DCE1E74F0B20097C0C5 /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
-		D7DE755C1E76EBD3005B6305 /* API+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Login.swift"; sourceTree = "<group>"; };
 		F01DF28106EBD72166CAD1CC /* Pods_Utilities_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utilities_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,8 +123,6 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				D7A66DCE1E74F0B20097C0C5 /* AppConstant.swift */,
-				D7A01FE91E757ABA00B030A4 /* API.swift */,
-				D7DE755C1E76EBD3005B6305 /* API+Login.swift */,
 				D7A66DCA1E74EF9B0097C0C5 /* ViewController1.swift */,
 				D7A66DCC1E74EFAB0097C0C5 /* ViewController2.swift */,
 				D7A01FE21E7534CD00B030A4 /* TableViewCell1.swift */,
@@ -384,10 +378,8 @@
 			files = (
 				D7A66DCB1E74EF9B0097C0C5 /* ViewController1.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				D7DE755D1E76EBD3005B6305 /* API+Login.swift in Sources */,
 				D7A01FE41E7534CD00B030A4 /* TableViewCell1.swift in Sources */,
 				D7A66DCD1E74EFAB0097C0C5 /* ViewController2.swift in Sources */,
-				D7A01FEA1E757ABA00B030A4 /* API.swift in Sources */,
 				D7A66DCF1E74F0B20097C0C5 /* AppConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

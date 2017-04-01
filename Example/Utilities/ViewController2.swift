@@ -9,21 +9,20 @@
 import UIKit
 import Utilities
 
-class ViewController2: UIViewController, ViewControllerInstantiateable, ViewControllerOpenable {
+class ViewController2: UIViewController, ViewControllerInstantiateable, Parameterable {
     static var storyboardName: StoryboardNameable = Storyboard.Storyboard1
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView & TableViewCell1.self
-            tableView & (TableViewCell1.self, "custom identifier")
+            tableView.register(cell: TableViewCell1.self)
+            tableView.register(cell: TableViewCell1.self, identifier: "custom identifier")
             
             tableView.dataSource = self
             tableView.delegate = self
         }
     }
     
-    typealias ParameterType = (title: String, color: UIColor)
-    var parameter: ParameterType! {
+    var parameter: (title: String, color: UIColor)! {
         didSet {
             model = Array(repeating: parameter, count: 10)
         }
@@ -43,12 +42,12 @@ extension ViewController2: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let parameter = model[indexPath.row]
         if indexPath.row == 0 {
-            let cell = (tableView, indexPath) & TableViewCell1.self
-            return cell & model[indexPath.row]
+            return tableView.dequeueReusable(cell: TableViewCell1.self, for: indexPath)
+                .with(parameter: parameter)
         }
-        
-        let cell = (tableView, indexPath) & (TableViewCell1.self, "custom identifier")
-        return cell & model[indexPath.row]
+        return tableView.dequeueReusable(cell: TableViewCell1.self, withIdentifier: "custom identifier", for: indexPath)
+            .with(parameter: parameter)
     }
 }
