@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 @IBDesignable
 open class CustomView: UIView {

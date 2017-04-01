@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public struct Cell<T> {
     var cells: [T]
@@ -15,7 +15,6 @@ public protocol ModelExpandable: NSObjectProtocol {
 public extension ModelExpandable {
     func append(parent: T, child: (expand: Bool, cells: [T]?) = (true, nil)) {
         model.append(Cell(cells: [parent], heights: [UITableViewAutomaticDimension], parent: nil, hidden: false))
-        
         if let cells = child.cells {
             let heights: [CGFloat] = Array(repeating: UITableViewAutomaticDimension, count: cells.count)
             let parentIndex = model.count - 1
@@ -61,7 +60,6 @@ public extension ModelExpandable {
             let child = model.filter({$0.parent == indexPath.section}).first,
             let indexChild = model.index(where: {$0.parent == child.parent})
             else { return nil }
-        
         return indexChild
     }
     

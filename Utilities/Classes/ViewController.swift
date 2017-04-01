@@ -1,35 +1,23 @@
-import UIKit
+import Foundation
 
 public protocol StoryboardNameable {
     var storyboardName: String { get }
 }
 
-public protocol NavigationNameable {
-    var navigationName: (StoryboardNameable, String) { get }
+fileprivate extension StoryboardNameable {
+    fileprivate var storyboard: UIStoryboard {
+        return UIStoryboard(name: storyboardName, bundle: nil)
+    }
 }
 
 public protocol ViewControllerInstantiateable: Nameable {
     static var storyboardName: StoryboardNameable { get }
 }
 
-public protocol ViewControllerOpenable: Parameterable {}
-
-public prefix func !(rhs: NavigationNameable) -> UINavigationController {
-    let viewController = rhs.navigationName.0.storyboardName & rhs.navigationName.1
-    return viewController as! UINavigationController
-}
-
-public func &<T>(lhs: UINavigationController, rhs: T.Type) -> T {
-    return lhs.topViewController as! T
-}
-
-public prefix func !<T>(rhs: T.Type) -> T where T : ViewControllerInstantiateable {
-    let viewController = rhs.storyboardName.storyboardName & rhs.name
-    return viewController as! T
-}
-
-private func &(lhs: String, rhs: String) -> UIViewController {
-    let storyboard = UIStoryboard(name: lhs, bundle: nil)
-    let viewController = storyboard.instantiateViewController(withIdentifier: rhs)
-    return viewController
+public extension ViewControllerInstantiateable {
+    public static var instantiate: Self {
+        let storyboard = storyboardName.storyboard
+        let viewController = storyboard.instantiateViewController(withIdentifier: name)
+        return viewController as! Self
+    }
 }

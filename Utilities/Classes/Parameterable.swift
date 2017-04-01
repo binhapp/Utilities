@@ -1,12 +1,13 @@
 import Foundation
 
-public protocol Parameterable {
+public protocol Parameterable: class {
     associatedtype ParameterType
-    var parameter: ParameterType! { get set }
+    var parameter: ParameterType { get set }
 }
 
-public func &<T>(lhs: T, rhs: T.ParameterType) -> T where T : Parameterable {
-    var copy = lhs
-    copy.parameter = rhs
-    return copy
+public extension Parameterable {
+    public func with(parameter: ParameterType) -> Self {
+        self.parameter = parameter
+        return self
+    }
 }

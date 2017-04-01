@@ -5,7 +5,7 @@ public protocol Nameable {
 }
 
 public extension Nameable {
-    static var name: String {
+    public static var name: String {
         return String(describing: self)
     }
 }
