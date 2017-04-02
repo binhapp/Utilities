@@ -7,7 +7,7 @@ public struct Cell<T> {
     var hidden: Bool
 }
 
-public protocol ModelExpandable: NSObjectProtocol {
+public protocol ModelExpandable: class {
     associatedtype T
     var model: [Cell<T>] { get set }
 }
