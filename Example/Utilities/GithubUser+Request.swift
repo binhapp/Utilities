@@ -10,7 +10,7 @@ import Foundation
 
 extension GithubUser: APIResponseable {
     struct Request: APIRequestable {
-        var userName: String
+        let userName: String
         
         typealias ResponseType = GithubUser
         func createRequest() -> APIRequest {
