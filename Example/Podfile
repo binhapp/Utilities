@@ -1,6 +1,8 @@
 use_frameworks!
 
 target 'Utilities_Example' do
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
   pod 'Utilities', :path => '../'
 
   target 'Utilities_Tests' do
