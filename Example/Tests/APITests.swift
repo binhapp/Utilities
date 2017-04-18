@@ -16,6 +16,6 @@ class APITests: XCTestCase {
             expect.fulfill()
             XCTAssertEqual(user.name, "blcsntb")
         }
-        wait(for: [expect], timeout: 3)
+        wait(for: [expect], timeout: 30)
     }
 }
