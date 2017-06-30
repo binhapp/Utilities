@@ -3,6 +3,7 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 osx_image: xcode8.3
+xcode_sdk: iphonesimulator10.3
 language: swift
 # cache: cocoapods
 # podfile: Example/Podfile
