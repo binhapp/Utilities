@@ -13,3 +13,5 @@ script:
 - set -o pipefail
 - xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6" build-for-testing test | xcpretty
 - pod lib lint
+after_success:
+- bash <(curl -s https://codecov.io/bash)
