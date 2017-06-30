@@ -1,16 +1,22 @@
 PODS:
-  - Utilities (2.3.1)
+  - Alamofire (4.4.0)
+  - SwiftyJSON (3.1.4)
+  - Utilities (2.3.3)
 
 DEPENDENCIES:
+  - Alamofire
+  - SwiftyJSON
   - Utilities (from `../`)
 
 EXTERNAL SOURCES:
   Utilities:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  Utilities: 0a14f4aa0845ff42e8f8b78aa2e7f49bb6438e02
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Utilities: 2aa62eb7a27762d12ae5a9a84283978fa75f2200
 
-PODFILE CHECKSUM: 6d2285e585053b0c7b86a34d77c5b08e5953c29e
+PODFILE CHECKSUM: fe23b020d7d74b2292df1f25e205eb6395a6d733
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.0
