@@ -33,7 +33,7 @@ pod "Utilities"
 
 ## Author
 
-blcsntb, blcsntb@gmail.com
+Binh Nguyen, blcsntb@gmail.com
 
 ## License
 
