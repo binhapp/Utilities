@@ -1,23 +1,32 @@
 import Foundation
 
-public func println(_ item: Any, path: String = #file, line: Int = #line, function: String = #function) {
-    print(path.fileNameWithoutExtension, terminator: ":")
+public func println(
+    _ items: Any...,
+    file: String = #file,
+    line: Int = #line,
+    function: String = #function)
+{
+    print(file.fileName, terminator: ":")
     print(line, terminator: ":")
     print(function, terminator: ": ")
-    print(item)
+    
+    items.forEach {
+        print($0, terminator: " ")
+    }
+    
     print()
 }
 
-private extension String {
-    private var nsString: NSString {
-        return NSString(string: self)
+public extension String {
+    public var fileName: String {
+        return fileNameExtension.nsString.deletingPathExtension
     }
     
-    var fileName: String {
+    public var fileNameExtension: String {
         return nsString.lastPathComponent
     }
     
-    var fileNameWithoutExtension: String {
-        return fileName.nsString.deletingPathExtension
+    public var nsString: NSString {
+        return NSString(string: self)
     }
 }
