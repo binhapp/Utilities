@@ -4,16 +4,19 @@ import Foundation
 open class CustomView: UIView {
     
     @IBInspectable
-    public var indexSubView: Int = 0 {
+    public var subViewIndex: Int = 0 {
         didSet {
-            guard let unwrapContent = contentView else { return }
+            guard let unwrapContent = contentView else {
+                assertionFailure()
+                return
+            }
             unwrapContent.removeFromSuperview()
             xibSetup()
             layoutIfNeeded()
         }
     }
     
-    private var contentView : UIView!
+    private var contentView : UIView?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,19 +29,25 @@ open class CustomView: UIView {
     }
     
     private func xibSetup() {
-        guard let viewFromNib = loadViewFromNib() else { return }
+        guard let viewFromNib = loadViewFromNib() else {
+            assertionFailure()
+            return
+        }
+        
+        viewFromNib.frame = bounds
+        viewFromNib.autoresizingMask = [
+            .flexibleWidth,
+            .flexibleHeight
+        ]
+        
+        addSubview(viewFromNib)
         contentView = viewFromNib
-        contentView.frame = bounds
-        contentView.autoresizingMask = [
-            UIViewAutoresizing.flexibleWidth,
-            UIViewAutoresizing.flexibleHeight]
-        addSubview(contentView)
     }
     
     private func loadViewFromNib() -> UIView? {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
-        let view = nib.instantiate(withOwner: self, options: nil)[indexSubView] as? UIView
+        let nib = UINib(nibName: className, bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil)[subViewIndex] as? UIView
         return view
     }
 }

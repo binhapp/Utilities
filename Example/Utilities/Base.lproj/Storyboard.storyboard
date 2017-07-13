@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4oP-Up-Fsf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="eq5-Bz-FOg">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="4oP-Up-Fsf" customClass="ViewController" customModule="Utilities_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ydC-lm-JcW"/>
+                        <viewControllerLayoutGuide type="bottom" id="o1C-5r-LDx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bis-bt-xhm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyc-oJ-osP" customClass="MyView" customModule="Utilities_Example" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="subViewIndex">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lyc-oJ-osP" firstAttribute="top" secondItem="Bis-bt-xhm" secondAttribute="top" id="A0c-9Z-RSF"/>
+                            <constraint firstItem="o1C-5r-LDx" firstAttribute="top" secondItem="Lyc-oJ-osP" secondAttribute="bottom" id="Xu7-ts-8oU"/>
+                            <constraint firstItem="Lyc-oJ-osP" firstAttribute="leading" secondItem="Bis-bt-xhm" secondAttribute="leading" id="cJ4-vq-dPN"/>
+                            <constraint firstAttribute="trailing" secondItem="Lyc-oJ-osP" secondAttribute="trailing" id="wuV-IK-EgX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myView" destination="Lyc-oJ-osP" id="pSo-m1-Uf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNY-7C-WYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215.19999999999999" y="156.97151424287858"/>
+        </scene>
+    </scenes>
+</document>
