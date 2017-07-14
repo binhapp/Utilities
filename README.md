@@ -1,5 +1,6 @@
 # Utilities
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7690349031c04190a561ae34d9250e1f)](https://www.codacy.com/app/blcsntb/Utilities?utm_source=github.com&utm_medium=referral&utm_content=blcsntb/Utilities&utm_campaign=badger)
 [![Version](https://img.shields.io/cocoapods/v/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 
 [![License](https://img.shields.io/cocoapods/l/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
