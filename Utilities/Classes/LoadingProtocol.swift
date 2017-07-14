@@ -1,29 +1,19 @@
 import UIKit
 
 public protocol LoadingProtocol {
+    var isLoading: Bool { get }
     func showLoading()
     func hideLoading()
 }
 
 extension UIView: LoadingProtocol {
-    public class LoadingView: UIActivityIndicatorView {
-        var count: Int = 0
-    }
-    
-    private func createLoadingView() -> UIView {
-        let indicatorView = LoadingView(activityIndicatorStyle: .gray)
-        indicatorView.frame.size = frame.size
-        indicatorView.startAnimating()
-        return indicatorView
-    }
-    
     public func showLoading() {
-        if loadingView != nil {
+        if isLoading {
             loadingView?.count += 1
             return
         }
-        layoutIfNeeded()
-        addSubview(createLoadingView())
+        self.layoutIfNeeded()
+        self.addSubview(createLoadingView())
     }
     
     public func hideLoading() {
@@ -33,7 +23,22 @@ extension UIView: LoadingProtocol {
         }
     }
     
+    public var isLoading: Bool {
+        return loadingView != nil
+    }
+    
     public var loadingView: LoadingView? {
-        return subviews.first(where: { $0 is LoadingView }) as? LoadingView
+        return self.subviews.first(where: { $0 is LoadingView }) as? LoadingView
+    }
+    
+    private func createLoadingView() -> UIView {
+        let loadingView = LoadingView(activityIndicatorStyle: .gray)
+        loadingView.frame.size = frame.size
+        loadingView.startAnimating()
+        return loadingView
+    }
+    
+    public class LoadingView: UIActivityIndicatorView {
+        var count: Int = 1
     }
 }

@@ -20,6 +20,7 @@
 		D705EB401F17601B00579949 /* CustomViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705EB3F1F17601B00579949 /* CustomViewTests.swift */; };
 		D705EB421F17711C00579949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705EB411F17711C00579949 /* ViewController.swift */; };
 		D705EB441F177C2100579949 /* XCTestCase+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705EB431F177C2100579949 /* XCTestCase+Extension.swift */; };
+		D73E70F01F18754100E76DCE /* LoadingProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73E70EF1F18754100E76DCE /* LoadingProtocolTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D705EB3F1F17601B00579949 /* CustomViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewTests.swift; sourceTree = "<group>"; };
 		D705EB411F17711C00579949 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D705EB431F177C2100579949 /* XCTestCase+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extension.swift"; sourceTree = "<group>"; };
+		D73E70EF1F18754100E76DCE /* LoadingProtocolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingProtocolTests.swift; sourceTree = "<group>"; };
 		F01DF28106EBD72166CAD1CC /* Pods_Utilities_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utilities_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				D705EB361F174EFC00579949 /* ClassNameProtocolTests.swift */,
+				D73E70EF1F18754100E76DCE /* LoadingProtocolTests.swift */,
 				D705EB3F1F17601B00579949 /* CustomViewTests.swift */,
 				D705EB341F17336A00579949 /* DebugTests.swift */,
 				D705EB431F177C2100579949 /* XCTestCase+Extension.swift */,
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D705EB441F177C2100579949 /* XCTestCase+Extension.swift in Sources */,
+				D73E70F01F18754100E76DCE /* LoadingProtocolTests.swift in Sources */,
 				D705EB351F17336A00579949 /* DebugTests.swift in Sources */,
 				D705EB371F174EFC00579949 /* ClassNameProtocolTests.swift in Sources */,
 				D705EB401F17601B00579949 /* CustomViewTests.swift in Sources */,
