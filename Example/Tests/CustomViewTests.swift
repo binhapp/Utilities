@@ -17,7 +17,7 @@ class CustomViewTests: XCTestCase {
         UIApplication.shared.keyWindow?.rootViewController = viewController
         
         let myView = MyView(frame: viewController.view.frame)
-        myView.subViewIndex = 1
+        myView.viewIndex = 1
         viewController.view.addSubview(myView)
         
         XCTAssertEqual(viewController.view.frame, myView.frame)
