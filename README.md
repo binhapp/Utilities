@@ -1,5 +1,6 @@
 # Utilities
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7690349031c04190a561ae34d9250e1f)](https://www.codacy.com/app/blcsntb/Utilities?utm_source=github.com&utm_medium=referral&utm_content=blcsntb/Utilities&utm_campaign=badger)
 [![Version](https://img.shields.io/cocoapods/v/Utilities.svg?style=flat)](http://cocoapods.org/pods/Utilities)
 [![CI Status](http://img.shields.io/travis/blcsntb/Utilities.svg?style=flat)](https://travis-ci.org/blcsntb/Utilities)
 [![codecov](https://codecov.io/gh/blcsntb/Utilities/branch/master/graph/badge.svg)](https://codecov.io/gh/blcsntb/Utilities)
