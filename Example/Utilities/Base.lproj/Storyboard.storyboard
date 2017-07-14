@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4oP-Up-Fsf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="eq5-Bz-FOg">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="4oP-Up-Fsf" customClass="ViewController" customModule="Utilities_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ydC-lm-JcW"/>
+                        <viewControllerLayoutGuide type="bottom" id="o1C-5r-LDx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bis-bt-xhm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyc-oJ-osP" customClass="MyView" customModule="Utilities_Example" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="211" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewIndex">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="This is my label"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5A-xE-qZO" customClass="MyView" customModule="Utilities_Example" customModuleProvider="target">
+                                <rect key="frame" x="20" y="98" width="157" height="60.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewIndex">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="This is my label"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lyc-oJ-osP" firstAttribute="top" secondItem="Bis-bt-xhm" secondAttribute="top" constant="20" symbolic="YES" id="A0c-9Z-RSF"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lyc-oJ-osP" secondAttribute="trailing" constant="20" symbolic="YES" id="aBJ-gb-wGe"/>
+                            <constraint firstItem="Lyc-oJ-osP" firstAttribute="leading" secondItem="Bis-bt-xhm" secondAttribute="leading" constant="20" symbolic="YES" id="cJ4-vq-dPN"/>
+                            <constraint firstItem="M5A-xE-qZO" firstAttribute="top" secondItem="Lyc-oJ-osP" secondAttribute="bottom" constant="8" symbolic="YES" id="cxg-JG-Qwr"/>
+                            <constraint firstItem="M5A-xE-qZO" firstAttribute="leading" secondItem="Bis-bt-xhm" secondAttribute="leading" constant="20" symbolic="YES" id="itQ-Zd-eSq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M5A-xE-qZO" secondAttribute="trailing" constant="20" symbolic="YES" id="mC7-jv-dxu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myView" destination="Lyc-oJ-osP" id="pSo-m1-Uf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNY-7C-WYE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215.19999999999999" y="156.97151424287858"/>
+        </scene>
+    </scenes>
+</document>
