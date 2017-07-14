@@ -17,7 +17,7 @@ class LoadingProtocolTests: XCTestCase {
         XCTAssertEqual(viewController.view.isLoading, true)
         
         waitForExpectations { (expectation) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.viewController.view.hideLoading()
                 XCTAssertEqual(self.viewController.view.isLoading, false)
                 expectation.fulfill()
@@ -29,19 +29,19 @@ class LoadingProtocolTests: XCTestCase {
         viewController.view.showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.viewController.view.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.viewController.view.hideLoading()
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.viewController.view.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.viewController.view.hideLoading()
             }
         }
         
         waitForExpectations { (expectation) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.viewController.view.hideLoading()
                 XCTAssertEqual(self.viewController.view.isLoading, false)
                 expectation.fulfill()
