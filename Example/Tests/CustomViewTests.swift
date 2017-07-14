@@ -5,8 +5,7 @@ import Utilities
 class CustomViewTests: XCTestCase {
     
     func testCustomViewInitCoder() {
-        let viewController = UIStoryboard(name: "Storyboard", bundle: nil)
-            .instantiateInitialViewController() as! ViewController
+        let viewController = ViewController.instantiate
         UIApplication.shared.keyWindow?.rootViewController = viewController
         
         XCTAssertNotNil(viewController.myView)

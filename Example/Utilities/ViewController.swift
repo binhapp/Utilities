@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Utilities
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, InstantiateProtocol {
+    
+    static var storyboardName: String { return "Storyboard" }
     
     @IBOutlet weak var myView: MyView!
     

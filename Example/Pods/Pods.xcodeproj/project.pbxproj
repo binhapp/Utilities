@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		329797258B871C9C9F284C8675CCF0E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		34DF54E0A3B0C18100A809814E31C9AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E48974CFB2234EFC71F08905E5AED /* ViewController.swift */; };
+		34DF54E0A3B0C18100A809814E31C9AC /* InstantiateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9E48974CFB2234EFC71F08905E5AED /* InstantiateProtocol.swift */; };
 		457A7EADC84FCD3BE5F682F55FEA658C /* ModelLoadMoreable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A6ADE6560425AB5B595C24FA3B7212 /* ModelLoadMoreable.swift */; };
 		512ABB77F386F8F447059DC65A132635 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		63FF0046641DFDC9A1E21F77DFA4C366 /* Utilities-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E72CC0DA03A731C204BCE8C306CFC25 /* Utilities-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,7 +71,7 @@
 		DA29B539D3B5D3CE5D3DB8B2E9DAD6B8 /* Utilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Utilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8366DC59838794CEDA218576BEBD01 /* Pods_Utilities_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Utilities_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1134DB2CBAB622AAA84099BEFDB943C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA9E48974CFB2234EFC71F08905E5AED /* ViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA9E48974CFB2234EFC71F08905E5AED /* InstantiateProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InstantiateProtocol.swift; sourceTree = "<group>"; };
 		F104977B6C4B58AF5B958B077E3998D7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9213330FCEAAD1EA6F4FC875948807A /* Pods-Utilities_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Utilities_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,7 +184,7 @@
 				2BB45A2A4974D3AC1606E422BB091944 /* LoadingProtocol.swift */,
 				1C2411C709CF632842568A0D1DA4E96C /* ModelExpandable.swift */,
 				D3A6ADE6560425AB5B595C24FA3B7212 /* ModelLoadMoreable.swift */,
-				EA9E48974CFB2234EFC71F08905E5AED /* ViewController.swift */,
+				EA9E48974CFB2234EFC71F08905E5AED /* InstantiateProtocol.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -378,7 +378,7 @@
 				C3DAFFDD6B0834281CB7D6437A128A5D /* ModelExpandable.swift in Sources */,
 				457A7EADC84FCD3BE5F682F55FEA658C /* ModelLoadMoreable.swift in Sources */,
 				F74C8831A7171872A85D75D0E841E897 /* Utilities-dummy.m in Sources */,
-				34DF54E0A3B0C18100A809814E31C9AC /* ViewController.swift in Sources */,
+				34DF54E0A3B0C18100A809814E31C9AC /* InstantiateProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
