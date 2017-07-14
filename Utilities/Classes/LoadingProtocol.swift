@@ -12,7 +12,6 @@ extension UIView: LoadingProtocol {
             loadingView?.count += 1
             return
         }
-        self.layoutIfNeeded()
         self.addSubview(createLoadingView())
     }
     
@@ -33,7 +32,11 @@ extension UIView: LoadingProtocol {
     
     private func createLoadingView() -> UIView {
         let loadingView = LoadingView(activityIndicatorStyle: .gray)
-        loadingView.frame.size = frame.size
+        
+        self.layoutIfNeeded()
+        loadingView.frame = self.bounds
+        loadingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
         loadingView.startAnimating()
         return loadingView
     }
