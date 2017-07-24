@@ -12,17 +12,17 @@ language: swift
 # - pod install --project-directory=Example
 script:
 - set -o pipefail
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 5" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 5s" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6 Plus" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6s" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6s Plus" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 7" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 5" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 5s" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6 Plus" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6s" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 6s Plus" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 7" build-for-testing test | xcpretty
 - xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone 7 Plus" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone SE" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPad Air" build-for-testing test | xcpretty
-- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPad Air 2" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPhone SE" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPad Air" build-for-testing test | xcpretty
+#- xcodebuild -workspace Example/Utilities.xcworkspace -scheme "Utilities-Example" -destination "platform=iOS Simulator,name=iPad Air 2" build-for-testing test | xcpretty
 - pod lib lint
 - pod spec lint
 after_success:
