@@ -22,11 +22,14 @@ public extension UIViewController {
         let filterViewControllers = topControllers.filter(filter)
         
         if filterViewControllers.isEmpty {
-            topControllers.first?.dismissViewController(animated: animated) {
+            topControllers.forEach {
+                ($0 as? DismissProtocol)?.dismissWithFlag()
+            }
+            topControllers.first?.dismiss(animated: animated) {
                 dismissToViewController(animated: animated, filter: filter, completion: completion)
             }
-            
-        } else {
+        }
+        else {
             completion(filterViewControllers.first as? T)
         }
     }
@@ -41,22 +44,15 @@ public extension UIViewController {
         
         if filterViewControllers.isEmpty {
             completion(topControllers)
-            
-        } else {
-            topControllers.first?.dismissViewController(animated: animated) {
+        }
+        else {
+            topControllers.forEach {
+                ($0 as? DismissProtocol)?.dismissWithFlag()
+            }
+            topControllers.first?.dismiss(animated: animated) {
                 dismissViewController(filter: filter, completion: completion)
             }
         }
-    }
-    
-    private func dismissViewController(
-        animated: Bool = false,
-        completion: @escaping () -> Void)
-    {
-        if let delegate = self as? DismissProtocol {
-            delegate.dismissWithFlag()
-        }
-        self.dismiss(animated: animated, completion: completion)
     }
     
     public static func getTopControllers() -> [UIViewController] {
